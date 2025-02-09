@@ -1,0 +1,28 @@
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
+export default function Home() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
+      <h1 className="text-4xl font-bold mb-4">Welcome to Our Youth Fellowship</h1>
+      <p className="text-lg text-gray-600 mb-6">Stay updated with our events and Christian news.</p>
+      
+      <Card className="w-full max-w-lg p-6 bg-white shadow-lg rounded-2xl">
+        <CardContent className="flex flex-col items-center">
+          <motion.div animate={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
+            <p className="text-xl">Upcoming Event:</p>
+            <h2 className="text-2xl font-semibold">Youth Worship Night</h2>
+            <p className="text-gray-600">Friday, 7 PM @ Church Hall</p>
+          </motion.div>
+          <Button className="mt-4" onClick={() => setCount(count + 1)}>
+            Clicked {count} times
+          </Button>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
